@@ -30,6 +30,7 @@ console.log(cnt);
 // 메모리 : 9608KB, 시간 : 124ms
 */
 
+/*
 const [ condition, ...coin ] = input;
 const [ n, price ] = condition.split(' ').map(Number);
 
@@ -41,3 +42,15 @@ const result = coin.reverse().reduce((acc, cur) => {
 
 console.log(result[1]);
 // 메모리 : 9620KB, 시간 : 128ms
+*/
+
+const [ condition, ...coins ] = input;
+const [ n, initPrice ] = condition.split(' ').map(Number);
+
+const result = coins.reverse().reduce(([ price, count ], coin) => {
+    const cnt = parseInt(price / Number(coin));
+    const money = price % Number(coin);
+    return cnt > 0 ? ([ money, count + cnt ]) : ([ price, count ]);
+}, ([ initPrice, 0 ]));
+
+console.log(result[1]);
