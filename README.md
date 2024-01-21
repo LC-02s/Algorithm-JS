@@ -3,7 +3,7 @@
 자바스크립트로 푼 개인 알고리즘 문제풀이 소스코드 모음  
 
 
-[👉 정리 문서 바로가기](https://www.notion.so/lc02s/JS-cb3a35f02a774c5a9b1e3f4ea94b04b1?pvs=4)
+👉 [정리 문서 바로가기](https://www.notion.so/lc02s/JS-cb3a35f02a774c5a9b1e3f4ea94b04b1?pvs=4)
 
 
 <br>
