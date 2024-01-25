@@ -17,7 +17,7 @@ function solution(fees, records) {
             const [ timeStamp, carNum, state ] = detail.split(' ');
             return ({ timeStamp: timeStamp.split(':').map(Number), carNum: Number(carNum), state: (state == 'IN' ? 1 : 0) });
         })
-        .sort((a, b) => a.carNum - b.carNum)
+        // .sort((a, b) => a.carNum - b.carNum)
         .reduce((obj, { timeStamp, carNum, state }) => {
             obj[carNum] = obj[carNum] ? ([ ...obj[carNum], [ timeStamp, state ] ]) : ([[ timeStamp, state ]]);
             return obj;
@@ -30,7 +30,7 @@ function solution(fees, records) {
                     const hToM = hh * 60 + mm;
                     if (idx == sortedRecords[key].length - 1 && state) return totalTime + (1439 - hToM);
                     return state ? totalTime - hToM : totalTime + hToM;
-                }, 0)
+                }, 0);
         });
     
     const computedFees = parkingTimes.map(pTime => {
