@@ -4,6 +4,8 @@
 const fs = require('fs');
 let n = Number(fs.readFileSync('/dev/stdin').toString().trim());
 */
+
+/*
 let n = 11;
 let cnt = 0;
 let flag = false;
@@ -19,3 +21,22 @@ while (n >= 0) {
     cnt += 1;
 }
 if (!flag) console.log(-1);
+*/
+
+function calcDelivery(n) {
+    const deliverySteps = (n, cnt) => {
+        if (n === 0 || n % 5 === 0) {
+            return cnt + parseInt(n / 5);
+        }
+        if (n < 0) return undefined;
+        return deliverySteps(n - 3, cnt + 1);
+    };
+
+    const result = deliverySteps(n, 0);
+
+    return result ?? -1;
+}
+
+const n = 11;
+const result = calcDelivery(n);
+console.log(result);
