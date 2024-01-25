@@ -23,6 +23,8 @@ while (n >= 0) {
 if (!flag) console.log(-1);
 */
 
+const n = 11;
+
 function calcDelivery(n) {
     const deliverySteps = (n, cnt) => {
         if (n === 0 || n % 5 === 0) {
@@ -32,11 +34,8 @@ function calcDelivery(n) {
         return deliverySteps(n - 3, cnt + 1);
     };
 
-    const result = deliverySteps(n, 0);
-
-    return result ?? -1;
+    return deliverySteps(n, 0) ?? -1;
 }
 
-const n = 11;
 const result = calcDelivery(n);
 console.log(result);
