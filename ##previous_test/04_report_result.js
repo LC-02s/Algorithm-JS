@@ -2,7 +2,7 @@
 // 2022 KAKAO BLIND RECRUITMENT
 
 /*
-// 처음 풀이, 코드 너무 더러워서 뒤에 다시 씀
+// 처음 풀이 (테스트 3 〉 통과 (863.33ms, 120MB))
 function solution(id_list, report, k) {
 
     const organizedRecords = report
@@ -41,6 +41,7 @@ function solution(id_list, report, k) {
 }
 */
 
+// Map 자료형 사용 (테스트 3 〉 통과 (214.64ms, 99.4MB))
 function solution(id_list, report, k) {
 
     const organizedRecords = [ ...new Set(report) ]
