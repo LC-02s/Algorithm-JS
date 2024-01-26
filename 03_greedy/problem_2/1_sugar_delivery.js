@@ -27,9 +27,7 @@ const n = 11;
 
 function calcDelivery(n) {
     const deliverySteps = (n, cnt) => {
-        if (n === 0 || n % 5 === 0) {
-            return cnt + parseInt(n / 5);
-        }
+        if (n === 0 || n % 5 === 0) return cnt + parseInt(n / 5);
         if (n < 0) return undefined;
         return deliverySteps(n - 3, cnt + 1);
     };
