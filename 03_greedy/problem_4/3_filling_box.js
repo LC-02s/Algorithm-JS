@@ -30,17 +30,17 @@ cubeStrArr.forEach(str => {
 })
 
 let countCube = 0;
-let usedCube = 0;
+let usedCubeSize = 0;
 
 for (let i = targetSize; i >= 0; i -= 1) {
-    usedCube *= 8; // 채널, 너비, 높이가 2씩 줄었으므로 큐브의 개수는 8배 증가
+    usedCubeSize *= 8; // 채널, 너비, 높이가 2씩 줄었으므로 큐브의 개수는 8배 증가
     const currentCubeSize = (2 ** i); // 현재의 정육면체 큐브 사이즈
     const requiredCube = boxSizeArr // 채워 넣어야 할 큐브의 개수 계산
         .map(boxSize => parseInt(boxSize / currentCubeSize))
-        .reduce(multiple) - usedCube;
+        .reduce(multiple) - usedCubeSize;
     const usageCubes = Math.min(requiredCube, cubes[i]); // 해당 단계에서 넣을 수 있는 큐브의 개수
     countCube += usageCubes;
-    usedCube += usageCubes;
+    usedCubeSize += usageCubes;
 }
 
-console.log(usedCube == boxSize ? countCube : -1);
+console.log(usedCubeSize == boxSize ? countCube : -1);
