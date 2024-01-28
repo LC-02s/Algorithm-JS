@@ -37,7 +37,7 @@ const result = schedules
 console.log(result[0]);
 
 /*
-// 위 로직 명령형으로 변경한 코드
+// 위 로직 명령형으로 작성한 코드
 let cnt = 1, targetIdx = 0;
 for (let i = 1; i < Number(n); i += 1) {
     if (schedules[targetIdx][1] <= schedules[i][0]) {
