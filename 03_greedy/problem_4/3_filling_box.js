@@ -17,9 +17,10 @@ const nearestSquare = (x) => {
     while ((2 ** squareNum) <= Number(x)) squareNum += 1;
     return squareNum - 1;
 }
+const multiple = (a, b) => a * b;
 const targetSizeArr = targetStr.trim().split(' ').map(Number);
 const [ length, width, height ] = targetSizeArr;
-const targetSize = targetSizeArr.reduce((totalNum, size) => totalNum * size);
+const targetSize = targetSizeArr.reduce(multiple);
 const size = Math.min(...targetSizeArr.map(nearestSquare));
 
 const cubes = new Array(20).fill(0);
@@ -36,7 +37,7 @@ for (let i = size; i >= 0; i -= 1) {
     const currentSize = (2 ** i); // 현재의 정육면체 큐브 사이즈
     const requiredCube = targetSizeArr // 채워 넣어야 할 큐브의 개수 계산
         .map(targetSize => parseInt(targetSize / currentSize))
-        .reduce((totalNum, targetSize) => totalNum * targetSize) - usedCube;
+        .reduce(multiple) - usedCube;
     const usageCubes = Math.min(requiredCube, cubes[i]); // 해당 단계에서 넣을 수 있는 큐브의 개수
     countCube += usageCubes;
     usedCube += usageCubes;
