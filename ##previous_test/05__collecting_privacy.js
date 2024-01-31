@@ -13,20 +13,20 @@ function solution(today, terms, privacies) {
 
     const targetDate = privacies.map((privacy) => privacy.split(' '))
         .map(([ date, type ]) => {
-            let [ prvcYear, prvcMonth, prvcDay ] = date.split('.').map(Number);
-            prvcMonth += termsMap.get(type);
-            if ((prvcDay + 27) % 28) { prvcDay = (prvcDay + 27) % 28 } 
-            else { prvcMonth -= 1; prvcDay = 28 }
-            while (prvcMonth > 12) { prvcYear += 1; prvcMonth -= 12 };
+            let [ expYear, expMonth, expDay ] = date.split('.').map(Number);
+            expMonth += termsMap.get(type);
+            if ((expDay + 27) % 28) { expDay = (expDay + 27) % 28 } 
+            else { expMonth -= 1; expDay = 28 }
+            while (expMonth > 12) { expYear += 1; expMonth -= 12 };
 
-            return +`${prvcYear}${String(prvcMonth).padStart(2, '0')}${String(prvcDay).padStart(2, '0')}`;
+            return +`${expYear}${String(expMonth).padStart(2, '0')}${String(expDay).padStart(2, '0')}`;
         });
     
     const thisDate = Number(today.trim().split('.').join(''));
     
     const targetPrivacyIndex = targetDate
-        .reduce((resultArr, date, idx) => {
-            if (date < thisDate) resultArr.push(idx + 1);
+        .reduce((resultArr, expDate, idx) => {
+            if (expDate < thisDate) resultArr.push(idx + 1);
             return resultArr;
         }, []);
 
