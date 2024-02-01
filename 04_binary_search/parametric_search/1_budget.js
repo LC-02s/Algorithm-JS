@@ -9,9 +9,9 @@ const input = `4
 120 110 140 150
 485`.trim().split('\n');
 
-const [ strN, arrSr, strM ] = input;
+const [ strN, arrStr, strM ] = input;
 const [ n, m ] = [ strN, strM ].map(Number);
-const requiredBudget = arrSr.split(' ').map(Number); // 각 지방의 예산 요청
+const requiredBudget = arrStr.split(' ').map(Number); // 각 지방의 예산 요청
 
 let start = 1; // 시작점
 let end = requiredBudget.reduce((a, b) => Math.max(a, b)); // 끝점
