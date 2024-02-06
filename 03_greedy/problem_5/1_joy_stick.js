@@ -28,7 +28,8 @@ function solution(name) {
     const targetName = name.split('').map(charSpacing);
     
     const [ minMove, count ] = targetName
-        .reduce(([ minMove, count ], char, idx, name) => {
+        .reduce(([ minMove, count ], spacing, idx, name) => {
+            // A(0)인 요소 탐색
             let cursor = idx + 1;
             while (cursor < name.length && name[cursor] === 0) cursor += 1;
             
@@ -38,7 +39,7 @@ function solution(name) {
                     (idx * 2) + name.length - cursor, // 뒤로
                     idx + 2 * (name.length - cursor) // 뒤의 요소 먼저 입력
                 ),
-                count + char
+                count + spacing
             ]
         }, [ targetName.length - 1, 0 ]);
 
