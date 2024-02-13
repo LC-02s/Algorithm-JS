@@ -14,7 +14,8 @@ const [ n, m ] = [ strN, strM ].map(Number);
 const requiredBudget = arrStr.split(' ').map(Number); // 각 지방의 예산 요청
 
 let start = 1; // 시작점
-let end = requiredBudget.reduce((a, b) => Math.max(a, b)); // 끝점
+// let end = requiredBudget.reduce((a, b) => Math.max(a, b)); // 끝점
+let end = Math.max(...requiredBudget); // 끝점
 let result = 0; // 상한액
 
 while (start <= end) { // 이진 탐색 수행
