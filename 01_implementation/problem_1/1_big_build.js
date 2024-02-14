@@ -21,3 +21,21 @@ const rating = personArr
     .join(' ');
 
 console.log(rating);
+
+/*
+// 명령형 로직
+let result = '';
+for (let i = 0; i < personArr.length; i += 1) {
+    const targetKG = personArr[i][0];
+    const targetCM = personArr[i][1];
+    let cnt = 0;
+    for (let j = 0; j < personArr.length; j += 1) {
+        const KG = personArr[j][0];
+        const CM = personArr[j][1];
+        if (KG > targetKG && CM > targetCM) cnt += 1;
+    }
+    result += (cnt + 1) + ' ';
+}
+console.log(result);
+*/
+
