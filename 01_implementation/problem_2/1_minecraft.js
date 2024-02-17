@@ -6,10 +6,10 @@ const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
     .map(str => str.trim().split(' ').map(Number));
 */
 
-const input = `3 4 0
-0 0 0 0
-0 0 0 0
-0 0 0 1`.split('\n').map(str => str.trim().split(' ').map(Number));
+const input = `3 4 1
+64 64 64 64
+64 64 64 64
+64 64 64 63`.split('\n').map(str => str.trim().split(' ').map(Number));
 
 const [ [ n, m, b ], ...blocksArr ] = input;
 const blocks = blocksArr.reduce((blocks, array) => blocks.concat(array), []);
@@ -17,9 +17,12 @@ const blocks = blocksArr.reduce((blocks, array) => blocks.concat(array), []);
 const blocksConutMap = blocks
     .reduce((map, height) => map.set(height, map.get(height) + 1 || 1), new Map());
 
-const [ resultTime, resultHeight ] = new Array(257).fill(0)
-    .reduce(([ time, floor ], _, idx) => {
-        const thisFloor = 256 - idx;
+const maxHeight = Math.max(...blocks);
+const minHeight = Math.min(...blocks);
+
+const [ resultTime, resultHeight ] = Array
+    .from({ length: maxHeight - minHeight + 1 }, (_, idx) => maxHeight - idx)
+    .reduce(([ time, floor ], thisFloor) => {
         let inventory = b;
         const thisTime = [ ...blocksConutMap ].reduce((time, [ block, count ]) => {
             if (block >= thisFloor) { 
