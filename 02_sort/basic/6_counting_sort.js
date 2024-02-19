@@ -6,20 +6,20 @@ function countingSort(arr) {
     const countArray = new Array(max + 1).fill(0);
 
     // 각 요소의 빈도수 세기
-    for (let i = 0; i < arr.length; i++) countArray[arr[i]]++;
+    for (let i = 0; i < arr.length; i += 1) countArray[arr[i]] += 1;
 
     // 누적 빈도수 계산
-    for (let i = 1; i < countArray.length; i++) countArray[i] += countArray[i - 1];
+    for (let i = 1; i < countArray.length; i += 1) countArray[i] += countArray[i - 1];
 
     // 정렬된 결과를 담을 배열
     const sortedArray = new Array(arr.length);
 
     // 입력 배열을 순회하며 정렬
-    for (let i = arr.length - 1; i >= 0; i--) {
+    for (let i = arr.length - 1; i >= 0; i -= 1) {
         const value = arr[i];
         const index = countArray[value] - 1;
         sortedArray[index] = value;
-        countArray[value]--;
+        countArray[value] -= 1;
     }
 
     return sortedArray;
