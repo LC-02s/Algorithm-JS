@@ -16,11 +16,11 @@ clinton`.trim().split('\n').map(str => str.trim());
 const [ condition, ...names ] = input.map(str => str.trim());
 const [ n, m ] = condition.split(' ').map(Number);
 
-const neverHeard = names.slice(0, n)
+const noHeard = names.slice(0, n)
     .reduce((set, name) => set.add(name), new Set());
 
-const neverHeardAndSeen = names.slice(n, names.length).sort()
-    .reduce((arr, name) => neverHeard.has(name) ? (arr.push(name), arr) : arr, []);
+const noHeardAndSeen = names.slice(n, names.length).sort()
+    .reduce((arr, name) => noHeard.has(name) ? (arr.push(name), arr) : arr, []);
 
-console.log(neverHeardAndSeen.length);
-console.log(neverHeardAndSeen.join('\n'));
+console.log(noHeardAndSeen.length);
+console.log(noHeardAndSeen.join('\n'));
