@@ -38,7 +38,7 @@ const visited = new Array(max).fill(0);
 let time = 0;
 
 queue.enq(n);
-while (queue.getLength !== 0) {
+while (queue.getLength() !== 0) {
     const currentPoint = queue.deq();
     const childNodes = [ currentPoint - 1, currentPoint + 1, currentPoint * 2 ];
     if (currentPoint === k) { time = visited[currentPoint]; break };
