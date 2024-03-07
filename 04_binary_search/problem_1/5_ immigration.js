@@ -8,7 +8,7 @@ const input = `2 6
 7
 10`.trim().split(/\s/).map(BigInt);
 
-const [ n, m, ...times] = input;
+const [ n, m, ...times ] = input;
 
 let min = 1n;
 let max = 10n ** 9n * m;
