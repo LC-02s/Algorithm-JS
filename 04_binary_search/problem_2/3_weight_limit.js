@@ -17,7 +17,7 @@ const [ bridges, maxWeight ] = infos.reduce(
     ([ bridges, maxWeight ], [ from, to, weight ]) => {
         bridges[from].push([ to, weight ]);
         bridges[to].push([ from, weight ]);
-        return [ bridges, (weight > maxWeight ? weight : maxWeight) ];
+        return [ bridges, Math.max(weight, maxWeight) ];
     }, 
     [ Array.from({ length: n + 1 }, () => []), 0 ]
 );
@@ -32,13 +32,13 @@ const bfs = (testWeight) => {
     visited[targetFrom] = true;
 
     while (headIndex < queue.length) {
-        const city = queue[headIndex];
+        const island = queue[headIndex];
 
-        if (city === targetTo) return true;
-        bridges[city].forEach(([ city, weight ]) => {
-            if (!visited[city] && testWeight <= weight) {
-                visited[city] = true;
-                queue.push(city);
+        if (island === targetTo) return true;
+        bridges[island].forEach(([ island, weight ]) => {
+            if (!visited[island] && testWeight <= weight) {
+                visited[island] = true;
+                queue.push(island);
             }
         });
         headIndex += 1;
