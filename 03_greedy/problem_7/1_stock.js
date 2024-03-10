@@ -15,7 +15,8 @@ const input = `3
 1 1 3 1 2`.trim().split('\n').map(str => str.trim().split(' ').map(Number));
 
 const result = input
-    .reduce((arr, target) => (target.length > 1 ? (arr.push(target), arr) : arr), [])
+    // .reduce((arr, target) => (target.length > 1 ? (arr.push(target), arr) : arr), [])
+    .filter((arr) => arr.length > 1)
     .map((dailyPrice) => {
         const [ profit ] = dailyPrice.reverse().reduce(([ profit, max ], price) => {
             if (price > max) return [ profit, price ];
