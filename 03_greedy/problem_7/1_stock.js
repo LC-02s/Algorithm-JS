@@ -18,11 +18,14 @@ const result = input
     // .reduce((arr, target) => (target.length > 1 ? (arr.push(target), arr) : arr), [])
     .filter((arr) => arr.length > 1)
     .map((dailyPrice) => {
-        const [ profit ] = dailyPrice.reverse().reduce(([ profit, max ], price) => {
-            if (price > max) return [ profit, price ];
-            if (price < max) return [ profit + max - price, max ];
-            return [ profit, max ];
-        }, [ 0, 0 ]);
+        const [ profit ] = dailyPrice.reverse().reduce(
+            ([ profit, max ], price) => {
+                if (price > max) return [ profit, price ];
+                if (price < max) return [ profit + max - price, max ];
+                return [ profit, max ];
+            }, 
+            [ 0, 0 ]
+        );
         return profit;
     })
     .join('\n');
