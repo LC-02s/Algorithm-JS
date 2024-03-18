@@ -12,7 +12,7 @@ const input = `2
 const [ n, ...testCase ] = input;
 const operators = [' ', '+', '-'];
 
-const result = testCase.forEach((n) => {
+testCase.forEach((n) => {
     const arr = Array.from({ length: n }, (_, i) => i + 1);
     function dfs(result, depth) {
         if (depth === n - 1) {
