@@ -14,6 +14,7 @@ function isPossible(x, y) {
 		if (Math.abs(a - x) === Math.abs(b - y)) return false; // 대각선에 위치한 경우
 	}
 	return true;
+	// !queens.some(([ a, b ]) => a === x || b === y || Math.abs(a - x) === Math.abs(b - y));
 }
 
 let cnt = 0;
