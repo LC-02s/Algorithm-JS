@@ -9,10 +9,10 @@ const input = `7 1 2 3 4 5 6 7
 8 1 2 3 5 8 13 21 34
 0`.trim().split('\n').map(str => str.trim().split(/\s/).map(Number));
 
-for (const data of input) {
-    if (!data[0]) break;
+for (const [ n, ...data ] of input) {
+    if (!n) break;
     else {
-        const visited = new Array(data[0]).fill(false);
+        const visited = new Array(n).fill(false);
         const answer = [];
         const selected = [];
 
@@ -31,8 +31,8 @@ for (const data of input) {
                 visited[i] = false;
             }
         }
-        dfs(data.slice(1), 0, 0);
-        
+        dfs(data, 0, 0);
+
         console.log(answer.join('\n') + '\n');
     }
 }
