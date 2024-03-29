@@ -35,7 +35,7 @@ const dfs = (depth, start) => {
             const minDist = result.reduce((min, [ cx, cy ]) => {
                 return Math.min(min, Math.abs(hx - cx) + Math.abs(hy - cy));
             }, 1e9);
-            sum += minDist;
+            sumOfDist += minDist;
         }
         answer = Math.min(answer, sumOfDist);
         return;
