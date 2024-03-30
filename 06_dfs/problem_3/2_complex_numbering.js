@@ -5,6 +5,16 @@ const input = require('fs').readFileSync(0, 'utf-8')
     .toString().trim().split('\n').map(str => str.trim().split('').map(Number));
 */
 
+/*
+const input = require('fs').readFileSync(0, 'utf-8')
+    .toString().trim().split('\n');
+const n = Number(input[0]);
+const house = [];
+for (let i = 1; i <= n; i += 1) {
+    house.push(input[i].split('').map(Number));
+}
+*/
+
 const testCase = [
     {
       input: "7\n0110100\n0110101\n1110101\n0000111\n0100000\n0111110\n0111000",
